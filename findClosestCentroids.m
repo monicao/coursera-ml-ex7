@@ -21,9 +21,14 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+% idx(1) - the centroid index for training example X(1) 
+%     idx(1) = 4; means that X(1) belongs to centroids(4)
+m = size(X, 1);
 
-
-
+for i = 1:m
+  distances = sqrt(sum(((centroids - X(i, :)) .^ 2)'));
+  [unimportant, idx(i)] = min(distances);
+end
 
 
 
